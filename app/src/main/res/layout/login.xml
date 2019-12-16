@@ -5,26 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/ybutton"
-        android:layout_width="126dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="136dp"
-        android:text="はじめる"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ytextView2"
+        android:id="@+id/ntextView2"
         android:layout_width="264dp"
         android:layout_height="77dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="73dp"
         android:text="M a P i n"
         android:textSize="64sp"
@@ -34,13 +21,84 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/ytextView3"
+        android:id="@+id/ntextView3"
         android:layout_width="326dp"
         android:layout_height="31dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginBottom="268dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="57dp"
         android:text="～位置情報共有アプリ～"
         android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/ybutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ntextView2" />
+
+    <EditText
+        android:id="@+id/emailField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="248dp"
+        android:ems="10"
+        android:hint="@string/hint1"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/passwdField"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginBottom="180dp"
+        android:ems="10"
+        android:hint="@string/hint2"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/nbutton2"
+        android:layout_width="166dp"
+        android:layout_height="161dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="26dp"
+        android:text="twitterと連携"
+        app:layout_constraintEnd_toStartOf="@+id/nbutton3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ntextView3" />
+
+    <Button
+        android:id="@+id/nbutton3"
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="28dp"
+        android:text="Facebookと連携"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ntextView3" />
+
+    <Button
+        android:id="@+id/emailLoginButton"
+        android:layout_width="157dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:text="ログイン"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwdField" />
+
+    <Button
+        android:id="@+id/emailSignUpButton"
+        android:layout_width="192dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="36dp"
+        android:text="会員登録はこちら"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
