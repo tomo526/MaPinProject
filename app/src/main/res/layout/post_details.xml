@@ -35,11 +35,11 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/TextView"
-                android:layout_width="175dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="27dp"
-                android:layout_marginTop="108dp"
+                android:id="@+id/textView"
+                android:layout_width="189dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="107dp"
                 android:text="投稿者の名前"
                 android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
