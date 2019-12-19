@@ -1,6 +1,4 @@
-package myapplication.example.mapinproject;
-
-import androidx.fragment.app.FragmentActivity;
+package myapplication.example.mapinproject.business.activities;
 
 import android.os.Bundle;
 
@@ -10,6 +8,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import androidx.fragment.app.FragmentActivity;
+import myapplication.example.mapinproject.R;
 
 public class HomeActivity extends FragmentActivity implements OnMapReadyCallback {
 
