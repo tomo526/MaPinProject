@@ -5,15 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 import myapplication.example.mapinproject.R;
+import myapplication.example.mapinproject.business.fragments.Pin_infoDialog;
+
+import static myapplication.example.mapinproject.business.activities.ReplyActivity.RESULT_PICK_IMAGEFILE;
 
 public class PostActivity  extends AppCompatActivity {
-    private static final int RESULT_PICK_IMAGEFILE = 1000;
-    private ImageView imageView;
 
 
 
@@ -24,6 +26,7 @@ public class PostActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post);
+
 
         findViewById(R.id.post_image_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +40,26 @@ public class PostActivity  extends AppCompatActivity {
         });
 
 
+        Button dialogBtn = (Button) findViewById(R.id.post_content_text);
+        // clickイベント追加
+        dialogBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            // クリックしたらダイアログを表示する処理
+            public void onClick(View v) {
+                // ダイアログクラスをインスタンス化
+                Pin_infoDialog dialog = new Pin_infoDialog();
+                // 表示  getFagmentManager()は固定、sampleは識別タグ
+                dialog.show(getFragmentManager(), "sample");
+            }
+        });
+
+        }
+
 
 
     }
+
+
+
+
 }

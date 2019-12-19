@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import myapplication.example.mapinproject.R;
 
 public class ReplyActivity extends AppCompatActivity {
-    private static final int RESULT_PICK_IMAGEFILE = 1000;
+    public static final int RESULT_PICK_IMAGEFILE = 1000;
     private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
