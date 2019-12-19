@@ -33,4 +33,17 @@
         <item>テレビ</item>
     </string-array>
 
+    <string-array name="list5">
+        <item>閉業している</item>
+        <item>存在しない</item>
+        <item>新しい場所に移転している</item>
+        <item>私有地や個人宅</item>
+        <item>スパム、偽装、不適切</item>
+        <item>ほかの場所と重複</item>
+        <item>著作権侵害や違法行為</item>
+    </string-array>
+
+    <string name="button">Button</string>
+    <string name="hint">input</string>
+
 </resources>
