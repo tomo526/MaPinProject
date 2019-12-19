@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MaPinProject</string>
     <string name="title_activity_maps">Map</string>
 
@@ -42,8 +42,12 @@
         <item>ほかの場所と重複</item>
         <item>著作権侵害や違法行為</item>
     </string-array>
-
-    <string name="button">Button</string>
-    <string name="hint">input</string>
-
+  
+    <string name="button">登録</string>
+    <string name="button2">検索</string>
+    <string name="hint">テキスト</string>
+    <string name="hint1">メールアドレス</string>
+    <string name="hint2">パスワード</string>
+    <string name="hint3">題名</string>
+    <string name="hint4">検索</string>
 </resources>
