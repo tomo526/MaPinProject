@@ -1,4 +1,4 @@
-package myapplication.example.mapinproject;
+package myapplication.example.mapinproject.business.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -7,6 +7,8 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+
+import myapplication.example.mapinproject.business.activities.Pin_infoActivity;
 
 public class Post_DeleteDialog2 extends DialogFragment {
 
@@ -25,7 +27,7 @@ public class Post_DeleteDialog2 extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Activity parent = getActivity();
-                Intent intent = new Intent(parent,Pin_infoActivity.class );
+                Intent intent = new Intent(parent, Pin_infoActivity.class );
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package myapplication.example.mapinproject;
+package myapplication.example.mapinproject.business.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import myapplication.example.mapinproject.business.fragments.Post_DeleteDialog;
+import myapplication.example.mapinproject.R;
 
 public class Post_DeleteActivity extends AppCompatActivity {
     @Override

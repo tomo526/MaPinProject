@@ -1,4 +1,5 @@
-package myapplication.example.mapinproject;
+package myapplication.example.mapinproject.business.fragments;
+
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -6,16 +7,16 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-public class Post_ChangeDialog extends DialogFragment {
+public class Post_DeleteDialog extends DialogFragment {
 
     // ダイアログが生成された時に呼ばれるメソッド ※必須
     public Dialog onCreateDialog(Bundle savedInstanceState){
         // ダイアログ生成  AlertDialogのBuilderクラスを指定してインスタンス化します
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         // タイトル設定
-        dialogBuilder.setTitle("変更");
+        dialogBuilder.setTitle("削除");
         // 表示する文章設定
-        dialogBuilder.setMessage("この場所の変更を提案しますか？");
+        dialogBuilder.setMessage("この場所の削除を提案しますか？");
 
         // OKボタン作成
         dialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener(){
@@ -23,12 +24,12 @@ public class Post_ChangeDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                // firebase内の情報を変更（未実装）
+                // firebase内の情報を削除（未実装）
 
                 // ダイアログクラスをインスタンス化
-                Post_ChangeDialog2 dialog2 = new Post_ChangeDialog2();
+                Post_DeleteDialog2 dialog2 = new Post_DeleteDialog2();
                 // 表示  getFagmentManager()は固定、sampleは識別タグ
-                dialog2.show(getFragmentManager(), "change");
+                dialog2.show(getFragmentManager(), "delete");
             }
         });
 

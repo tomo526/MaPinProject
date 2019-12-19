@@ -1,4 +1,4 @@
-package myapplication.example.mapinproject;
+package myapplication.example.mapinproject.business.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -7,6 +7,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+
+import myapplication.example.mapinproject.business.activities.Post_ChangeActivity;
+import myapplication.example.mapinproject.business.activities.Post_DeleteActivity;
 
 public class Pin_infoDialog extends DialogFragment {
 
@@ -31,12 +34,12 @@ public class Pin_infoDialog extends DialogFragment {
                 if(selectedVal == items[0]){
                     // post_changeに遷移
                     Activity parent = getActivity();
-                    Intent intent = new Intent(parent,Post_ChangeActivity.class );
+                    Intent intent = new Intent(parent, Post_ChangeActivity.class );
                     startActivity(intent);
                 }else if(selectedVal == items[1]){
                     // post_deleteに遷移
                     Activity parent = getActivity();
-                    Intent intent = new Intent(parent,Post_DeleteActivity.class );
+                    Intent intent = new Intent(parent, Post_DeleteActivity.class );
                     startActivity(intent);
                 }
 
