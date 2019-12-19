@@ -34,9 +34,11 @@
     </string-array>
 
     <string name="button">登録</string>
-    <string name="button2">参照</string>
-    <string name="hint">input</string>
+    <string name="button2">検索</string>
+    <string name="hint">テキスト</string>
     <string name="hint1">メールアドレス</string>
     <string name="hint2">パスワード</string>
+    <string name="hint3">題名</string>
+    <string name="hint4">検索</string>
 
 </resources>
