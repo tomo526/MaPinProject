@@ -1,6 +1,5 @@
 package myapplication.example.mapinproject.business.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import myapplication.example.mapinproject.R;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
 
@@ -27,13 +26,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.registration);
 
         mEmailField = findViewById(R.id.emailField);
         mPassField = findViewById(R.id.passwdField);
 
         findViewById(R.id.registration_button).setOnClickListener(this);
-        findViewById(R.id.emailSignUpButton).setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -42,46 +40,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.registration_button:
-                signIn(mEmailField.getText().toString(), mPassField.getText().toString());
-                break;
-            case R.id.emailSignUpButton:
-                changeRegistrationActivity();
-//                createAccount(mEmailField.getText().toString(), mPassField.getText().toString());
+                createAccount(mEmailField.getText().toString(), mPassField.getText().toString());
                 break;
         }
     }
 
-//    private void createAccount(String email, String password) {
-//        if (!validateForm()) {
-//            return;
-//        }
-//
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            changeActivity();
-//                        } else {
-//                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
-
-    private void signIn(String email, String password) {
+    private void createAccount(String email, String password) {
         if (!validateForm()) {
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            changeHomeActivity();
+                            changeLoginActivity();
                         } else {
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -109,13 +85,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return valid;
     }
 
-    private void changeHomeActivity() {
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-        startActivity(intent);
-    }
-
-    private void changeRegistrationActivity(){
-        Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+    private void changeLoginActivity() {
+        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }
