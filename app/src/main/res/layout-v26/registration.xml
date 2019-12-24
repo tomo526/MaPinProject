@@ -37,7 +37,7 @@
         android:id="@+id/emailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="300dp"
         android:ems="10"
         android:hint="@string/hint1"
         android:inputType="textEmailAddress"
@@ -49,36 +49,13 @@
         android:id="@+id/passwdField"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="232dp"
         android:ems="10"
         android:hint="@string/hint2"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/nbutton2"
-        android:layout_width="166dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="26dp"
-        android:text="twitterと連携"
-        app:layout_constraintEnd_toStartOf="@+id/nbutton3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ntextView3" />
-
-    <Button
-        android:id="@+id/nbutton3"
-        android:layout_width="156dp"
-        android:layout_height="156dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="28dp"
-        android:text="Facebookと連携"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ntextView3" />
 
     <Button
         android:id="@+id/registration_button"

@@ -32,15 +32,22 @@
         <activity
             android:name=".business.activities.LoginActivity"
             android:label="Login">
+<!--        <activity-->
+<!--            android:name=".business.activities.TestActivity"-->
+<!--            android:label="Login">-->
+<!--        <activity-->
+<!--            android:name=".business.activities.Pin_infoActivity"-->
+<!--            android:label="Login">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".business.activities.TestActivity"/>
+<!--        <activity android:name=".business.activities.TestActivity"/>-->
         <activity android:name=".business.activities.HomeActivity"/>
         <activity android:name=".business.activities.RegistrationActivity"/>
-    </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+        <activity android:name=".business.activities.Post_ChangeActivity"/>
+        <activity android:name=".business.activities.Post_DeleteActivity"/>
 
+    </application>
 </manifest>
