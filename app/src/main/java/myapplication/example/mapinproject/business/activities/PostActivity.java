@@ -33,7 +33,7 @@ public class PostActivity  extends AppCompatActivity {
             }
         });
 
-
+        //送信時に行う
         findViewById(R.id.post_send_button).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText text = (EditText)findViewById(R.id.post_content_text);
