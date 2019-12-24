@@ -57,7 +57,7 @@
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="カテゴリー（任意）"
+        android:hint="カテゴリ（任意）"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
