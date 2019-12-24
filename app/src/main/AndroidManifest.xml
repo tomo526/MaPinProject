@@ -33,7 +33,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".business.activities.ReplyActivity"
+            android:name=".business.activities.HomeActivity"
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,8 +41,8 @@
             </intent-filter>
         </activity>
 
-<!--        <activity android:name=".business.activities.TestActivity"/>-->
-
+        <activity android:name=".business.activities.PostActivity"/>
+        <activity android:name=".business.activities.Pin_infoActivity"/>
 <!--        <activity android:name=".business.activities.HomeActivity"/>-->
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
