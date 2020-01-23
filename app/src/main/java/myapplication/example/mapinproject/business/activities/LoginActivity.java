@@ -1,12 +1,13 @@
 package myapplication.example.mapinproject.business.activities;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.google.firebase.auth.AuthCredential;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -17,16 +18,24 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.OAuthProvider;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import  com.facebook.AccessToken ;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.login.LoginResult;
+import com.facebook.FacebookCallback;
+import android.util.Log;
 import myapplication.example.mapinproject.R;
-import myapplication.example.mapinproject.data.entities.Test;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookException;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private CallbackManager mCallbackManager;
     private FirebaseAuth mAuth;
-
+    private static final String TAG = "FacebookLoginActivity";
     private EditText mEmailField;
     private EditText mPassField;
     OAuthProvider.Builder provider = OAuthProvider.newBuilder("twitter.com");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +47,48 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.emailLoginButton).setOnClickListener(this);
         findViewById(R.id.emailSignUpButton).setOnClickListener(this);
-
+        findViewById(R.id.nbutton2).setOnClickListener(this);
+        findViewById(R.id.facebookbutton).setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
-        OAuthProvider.Builder provider = OAuthProvider.newBuilder("twitter.com");
 
-    }
+// Target specific email with login hint.
+        provider.addCustomParameter("lang", "fr");
+        // Use a CustomTabsIntent.Builder to configure CustomTabsIntent.
+// Once ready, call CustomTabsIntent.Builder.build() to create a CustomTabsIntent
+// and launch the desired Url with CustomTabsIntent.launchUrl()
+// Initialize Firebase Auth
+
+// Initialize Facebook Login button
+        mCallbackManager = CallbackManager.Factory.create();
+        LoginButton loginButton = findViewById(R.id.facebookbutton);
+        loginButton.setReadPermissions("email", "public_profile");
+        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "facebook:onCancel");
+                // ...
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d(TAG, "facebook:onError", error);
+                // ...
+            }
+        });// ...
+        }
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+
+            // Pass the activity result back to the Facebook SDK
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
+        }
 
     @Override
     public void onClick(View view) {
@@ -53,16 +99,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.emailSignUpButton:
                 createAccount(mEmailField.getText().toString(), mPassField.getText().toString());
                 break;
-            case R.id.Facebookbutton:
-
-                changeActivity();
-
-                break;
+            case R.id.facebookbutton://ボタンがヤバい
+                       break;
             case R.id.nbutton2:
-                checklogin();
-                loginfllor();
+
+                checkpoint();
+                logically();
                 loginlink();
-                changeActivity();
 
                 break;
         }
@@ -132,7 +175,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
-    private void checklogin() {
+    private void checkpoint() {
         Task<AuthResult> pendingResultTask = mAuth.getPendingAuthResult();
         if (pendingResultTask != null) {
             // There's something already here! Finish the sign-in for your user.
@@ -164,7 +207,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void loginfllor() {
+    private void logically() {
         mAuth
                 .startActivityForSignInWithProvider(/* activity= */ this, provider.build())
                 .addOnSuccessListener(
@@ -216,6 +259,43 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }
                         });
 
+
+    }
+    private void updateUI(FirebaseUser currentUser) {//↓Facebook側の処理
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+    private void handleFacebookAccessToken(AccessToken token) {
+        Log.d(TAG, "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                            changeActivity();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+//ここまで
 
     }
 }
