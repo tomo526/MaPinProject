@@ -2,6 +2,7 @@ package myapplication.example.mapinproject.business.activities;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.OAuthProvider;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+
 import  com.facebook.AccessToken ;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.LoginResult;
@@ -99,10 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.emailSignUpButton:
                 createAccount(mEmailField.getText().toString(), mPassField.getText().toString());
                 break;
-            case R.id.facebookbutton://ボタンがヤバい
+            case R.id.facebookbutton:
                        break;
             case R.id.nbutton2:
-
                 checkpoint();
                 logically();
                 loginlink();
@@ -249,6 +251,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 // authResult.getCredential().getAccessToken().
                                 // The OAuth secret can be retrieved by calling:
                                 // authResult.getCredential().getSecret().
+
                             }
                         })
                 .addOnFailureListener(
