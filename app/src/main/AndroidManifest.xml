@@ -31,7 +31,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".business.activities.LoginActivity"
+            android:name=".business.activities.HomeActivity"
             android:label="Mapin"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
