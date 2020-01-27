@@ -1,5 +1,6 @@
 package myapplication.example.mapinproject.business.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mEmailField = findViewById(R.id.emailField);
         mPassField = findViewById(R.id.passwdField);
 
-        findViewById(R.id.emailLoginButton).setOnClickListener(this);
+        findViewById(R.id.registration_button).setOnClickListener(this);
         findViewById(R.id.emailSignUpButton).setOnClickListener(this);
         findViewById(R.id.nbutton2).setOnClickListener(this);
         findViewById(R.id.facebookbutton).setOnClickListener(this);
@@ -92,11 +93,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.emailLoginButton:
+            case R.id.registration_button:
                 signIn(mEmailField.getText().toString(), mPassField.getText().toString());
                 break;
             case R.id.emailSignUpButton:
-                createAccount(mEmailField.getText().toString(), mPassField.getText().toString());
+                changeRegistrationActivity();
+//                createAccount(mEmailField.getText().toString(), mPassField.getText().toString());
                 break;
             case R.id.facebookbutton:
                        break;
@@ -108,7 +110,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
-
 
     private void createAccount(String email, String password) {
         if (!validateForm()) {
@@ -138,7 +139,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            changeActivity();
+                            changeHomeActivity();
                         } else {
                             Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -168,8 +169,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return valid;
     }
 
-    private void changeActivity() {
-        Intent intent = new Intent(LoginActivity.this, TestActivity.class);
+    private void changeHomeActivity() {
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    private void changeRegistrationActivity(){
+        Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
         startActivity(intent);
     }
 

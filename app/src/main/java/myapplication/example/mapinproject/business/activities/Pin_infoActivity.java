@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import myapplication.example.mapinproject.business.fragments.Pin_infoDialog;
 import myapplication.example.mapinproject.R;
+import myapplication.example.mapinproject.business.fragments.Pin_infoDialog;
 
 public class Pin_infoActivity extends AppCompatActivity {
 
@@ -14,7 +14,6 @@ public class Pin_infoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pin_info);
-
         // idがdialogButtonのButtonを取得
         Button dialogBtn = (Button) findViewById(R.id.dialogbutton3);
         // clickイベント追加
