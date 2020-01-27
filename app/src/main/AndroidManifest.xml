@@ -30,8 +30,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".business.activities.PostActivity"
-            android:label="Login">
+            android:name=".business.activities.HomeActivity"
+            android:label="Login"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,6 +41,8 @@
 <!--        <activity android:name=".business.activities.TestActivity"/>-->
         <activity android:name=".business.activities.Post_ChangeActivity"/>
         <activity android:name=".business.activities.Post_DeleteActivity"/>
+        <activity android:name=".business.activities.LoginActivity"/>
+<!--        <activity android:name=".business.activities.HomeActivity"/>-->
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
