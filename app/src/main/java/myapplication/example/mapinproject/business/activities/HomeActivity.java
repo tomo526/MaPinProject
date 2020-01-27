@@ -1,5 +1,6 @@
 package myapplication.example.mapinproject.business.activities;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -16,12 +17,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 import myapplication.example.mapinproject.R;
 
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private GoogleMap mMap;
+    private LatLng location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,10 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        setContentView(R.layout.home);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -62,6 +75,34 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+        // 皇居辺りの緯度経度
+        location = new LatLng(35.68, 139.76);
+        // marker 追加
+        mMap.addMarker(new MarkerOptions().position(location).title("Tokyo"));
+        // camera 移動
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 10));
+
+        // タップした時のリスナーをセット
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng tapLocation) {
+                // tapされた位置の緯度経度
+                location = new LatLng(tapLocation.latitude, tapLocation.longitude);
+                String str = String.format(Locale.US, "%f, %f", tapLocation.latitude, tapLocation.longitude);
+                mMap.addMarker(new MarkerOptions().position(location).title(str));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14));
+            }
+        });
+
+        // 長押しのリスナーをセット
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(LatLng longpushLocation) {
+                LatLng newlocation = new LatLng(longpushLocation.latitude, longpushLocation.longitude);
+                mMap.addMarker(new MarkerOptions().position(newlocation).title(""+longpushLocation.latitude+" :"+ longpushLocation.longitude));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newlocation, 14));
+            }
+        });
     }
 }
 

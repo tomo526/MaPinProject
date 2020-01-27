@@ -51,33 +51,8 @@ public class PostActivity  extends AppCompatActivity {
         findViewById(R.id.post_image_button).setOnClickListener(this);
         findViewById(R.id.post_send_button).setOnClickListener(this);
 
-//        rate.setOnRatingBarChangeListener(
-//                new RatingBar.OnRatingBarChangeListener(){
-//                    public void onRatingChanged(
-//                            RatingBar ratingBar,
-//                            float rating,
-//                            boolean fromUser){
-//                        Toast.makeText(
-//                                MainActivity.this,
-//                                String.format("現在の評価は%f", rating),
-//                                Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//        );
         ImageButton imageButton = findViewById(R.id.post_image_button);
 
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (flg) {
-//                    textImageButton.setText(R.string.tapped);
-//                    flg = false;
-//                } else {
-//                    textImageButton.setText(R.string.image_button);
-//                    flg = true;
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -133,43 +108,7 @@ public class PostActivity  extends AppCompatActivity {
                         dialog.show(getFragmentManager(), "sample");
                     }
                 });
-
-
-
-
-
-
-
-
-
-
                 }
             }
         });
     }
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.post);
-//
-//        locationText = findViewById(R.id.post_location_text);
-//        contentText = findViewById(R.id.post_content_text);
-//        categoryText = findViewById(R.id.post_category_text);
-//
-//        findViewById(R.id.post_send_button).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-//                intent.addCategory(Intent.CATEGORY_OPENABLE);
-//                intent.setType("image/*");
-//                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-//                startActivityForResult(intent, RESULT_PICK_IMAGEFILE);
-//            }
-//        });
-//
-//
-//
-//
-//    }
-}
