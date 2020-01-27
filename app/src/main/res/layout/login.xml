@@ -65,18 +65,17 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="26dp"
         android:text="twitterと連携"
-        app:layout_constraintEnd_toStartOf="@+id/nbutton3"
+        app:layout_constraintEnd_toStartOf="@+id/facebookbutton"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ntextView3" />
 
     <com.facebook.login.widget.LoginButton
-        android:id="@+id/nbutton3"
+        android:id="@+id/facebookbutton"
         android:layout_width="152dp"
         android:layout_height="275dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="28dp"
-        android:text="Facebookと連携"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ntextView3" />
 
