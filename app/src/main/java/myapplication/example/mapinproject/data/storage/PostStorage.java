@@ -16,5 +16,4 @@ public class PostStorage extends FragmentActivity {
         DatabaseReference testRef = database.getReference("post").push();
         testRef.setValue(post);
     }
-
 }
