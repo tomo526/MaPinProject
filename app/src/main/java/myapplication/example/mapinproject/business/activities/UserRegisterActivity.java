@@ -12,13 +12,16 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import myapplication.example.mapinproject.R;
 
 public class UserRegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText musernameText;
     private EditText mkomentoText;
-
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
