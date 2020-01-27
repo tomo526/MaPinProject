@@ -6,13 +6,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import myapplication.example.mapinproject.data.entities.Post;
-import myapplication.example.mapinproject.data.entities.Test;
 
 public class PostStorage extends FragmentActivity {
     private FirebaseDatabase database;
 
-    public void newCreate(String category,String content,String postname) {
-        Post post = new Post(category,content,postname);
+    public void newCreate(String category,String content,String postname,Number assessment) {
+        Post post = new Post(category,content,postname,assessment);
         database = FirebaseDatabase.getInstance();
         DatabaseReference testRef = database.getReference("post").push();
         testRef.setValue(post);

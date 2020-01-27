@@ -17,10 +17,11 @@ public class Post {
 
     }
 
-    public  Post(String _category,String _content,String _postname){
+    public  Post(String _category,String _content,String _postname,Number _assessment){
         this.category = _category;
         this.content = _content;
         this.postname = _postname;
+        this.assessment = _assessment;
     }
 
 
