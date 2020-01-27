@@ -32,7 +32,7 @@
 
         <activity
             android:name=".business.activities.LoginActivity"
-            android:label="Login"
+            android:label="Mapin"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,6 @@
             </intent-filter>
         </activity>
 <!--        <activity android:name=".business.activities.TestActivity"/>-->
-        <activity android:name=".business.activities.HomeActivity"/>
         <activity android:name=".business.activities.Post_ChangeActivity"/>
         <activity android:name=".business.activities.Post_DeleteActivity"/>
         <activity android:name=".business.activities.PostActivity"/>

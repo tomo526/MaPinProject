@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/post_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    ​
 
     <ImageButton
         android:id="@+id/post_back_button"
@@ -15,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
+    ​
 
     <EditText
         android:id="@+id/post_location_text"
@@ -30,6 +33,7 @@
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_back_button" />
+    ​
 
     <EditText
         android:id="@+id/post_content_text"
@@ -46,6 +50,7 @@
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_location_text" />
+    ​
 
     <EditText
         android:id="@+id/post_category_text"
@@ -63,6 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_content_text" />
+    ​
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -72,10 +78,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="86dp"
         android:numStars="5"
-        android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_category_text" />
+    ​
 
     <ImageButton
         android:id="@+id/post_image_button"
@@ -86,6 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
+    ​
 
     <Button
         android:id="@+id/post_send_button"
@@ -100,5 +107,6 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_image_button" />
-
+    ​
+    ​
 </androidx.constraintlayout.widget.ConstraintLayout>
